@@ -1,0 +1,658 @@
+.
+.
+Java Script - 
+.
+.
+- level 01: Java Script information
+- level 02: basic variable
+- level 03: function
+- level 04: objects-properties-methods
+- level 05: array, array_methods
+- level 06: Arrays, Objects & Reference Types
+- level 07: primitive -vs- Reference Types
+- level 08: Spread & Rest Operators
+- level 09: Destructuring
+- level 10: third party library
+
+.
+.
+- level xx: third party library
+
+
+
+
+.
+.
+- level 01: Java Script information
+
+-- Javascript next generation feature
+--- rest
+--- spread operator
+--- object destructuring
+
+-- Java Script is 
+--- weakly Typed Language - no explicit type assigned to variable 
+    data type can be change dynamically (number,text, boolean...).
+--- Object Oriented Language - data can be organized in logical objects.
+--- Versatile Language
+--- variable: primitive and reference type.
+
+-- browser:
+--- user event
+--- re-render the DOM(Document Object Model)
+
+
+-- links:
+
+--- Strong and weak typing:::
+    https://en.wikipedia.org/wiki/Strong_and_weak_typing
+
+--- dom::: 
+    https://en.wikipedia.org/wiki/Document_Object_Model
+
+--- JavaScript:::
+    http://developer.mozilla.org/en-US/dcocs/Learn/JavaScript
+
+
+
+.
+.
+- level 02: basic variable
+
+--- example: variable
+
+    var fName='jron';
+    console.log(fName)
+
+
+-- scope - JavaScript has two scopes – global and local. 
+
+--- global scope - 
+    Any variable declared outside of a function belongs to the global scope, 
+    and is therefore accessible from anywhere in your code. 
+
+--- local scope - 
+    Each function has its own scope, and any variable declared within that function 
+    is only accessible from that function and any nested functions.
+
+--- example: local/global scope
+
+    //global scope
+    var fName = 'Jron'; //string
+    var age = 46;  //number
+    var haveBusTicket = true; //boolean
+
+
+    // function call with argument
+    console.log(fnPrintUserInformation(fName, age, haveBusTicket));
+
+    // function with argument and return value
+    function fnPrintUserInformation(name, age, busTicket) {
+        return "Name: " + name 
+                + ", Age: " + age 
+                + ", busTickets: " + busTicket;
+    }
+
+--- example: function with argument
+    <js-03.01.function.js>
+
+
+-- var --> is a keyword that create a variable (outdate syntax)
+           var variable use lexical scope.
+--- example: variable with "var"
+    <js-02.01.01.variable.var.js>
+    <js-02.01.01.variable.var.output.txt>
+
+    <js-02.01.02.variable.var.js>
+    <js-02.01.02.variable.var.output.txt>
+
+-- let  --> is a keyword that create a variable. 
+            scope of the "let" is defferent fron "var" scope variable.
+            let variable use block scope { .. } (for(), if(), function(){}).
+            let variable never used as global variable (insdie 'window' object)
+
+--- example: variable with "let"
+    <js-02.02.01.variable.let.js>
+    <js-02.02.01.variable.let.output.txt>
+
+-- const --> is a keyword that create a variable that assigned once at declaration time 
+              and never changed (can't be assigned again)
+--- example: variable with "const"
+    <js-02.03.01.variable.const.js>
+    <js-02.03.01.variable.const.output.txt>
+
+-- const -->  with object -->
+   we can't cange the value of the constant, but we can change it properties value. 
+   const to object is like a pointer/reference type to an object (assigned pointer once)
+
+--- example: 
+   <js-02.03.02.variable.const.js>
+   <js-02.03.02.variable.const.output.txt>
+
+
+--- example: 
+//
+// create constant object with property
+const data = {name: 'name1'};
+console.log('name :: ' + data.name);
+
+//
+// change the property value
+data.name = 'new-name';
+console.log('name :: ' + data.name);
+
+//
+// add a new property with a value
+data.age = 22;
+console.log('age :: ' + data.age);
+
+//
+// can't assign new value to constant variable 'data'
+data = 'error message';
+    // output: 
+    // data = 'error message';
+    // ^
+    //
+    //TypeError: Assignment to constant variable.
+    //    at Object.<anonymous> (/home/yaron/git-ofekbytes/nodeJs/javaScript/js-02.03.02.variable.const.js:12:6)
+    //    at Module._compile (internal/modules/cjs/loader.js:955:30)
+    //    at Object.Module._extensions..js (internal/modules/cjs/loader.js:991:10)
+    //    at Module.load (internal/modules/cjs/loader.js:811:32)
+    //    at Function.Module._load (internal/modules/cjs/loader.js:723:14)
+    //    at Function.Module.runMain (internal/modules/cjs/loader.js:1043:10)
+    //    at internal/main/run_main_module.js:17:11
+
+--rtfm-- 
+- "hoisting"
+- "closures"
+
+
+.
+.
+- level 03: function
+
+.
+.
+- function with argument
+
+-- function with argument - sending data to the function
+
+--- example: function with argument
+
+    function fnPrintUserInformation(name, age, busTicket) 
+    {
+        return "Name is " + name + ", Age is " + age + ", busTickets" + busTicket;
+    }
+
+--- example: function with argument
+    <js-03.01.function.js>
+
+//TODO//
+.
+.
+- function block scope --> 
+
+.
+.
+- function lexical scope -->
+
+.
+.
+- block scope vs lexical scope inside function--> 
+
+.
+.
+- closure -->
+
+--rtfm --> block scope / lexical scope -- 
+
+https://spin.atomicobject.com/2014/10/20/javascript-scope-closures/
+
+https://dev.to/sandy8111112004/javascript-introduction-to-scope-function-scope-block-scope-d11
+
+///////////////////////////////////////////////
+
+.
+.
+- function inside function
+
+-- 
+
+--- example: 
+    <js-03.02.function-inside-function.js>
+    <js-03.02.function-inside-function.output.txt>
+
+.
+.
+-- function - anonymous function
+functiondsafasdfadfssdfafdsacxzvxczfdasfadsvcxcvxzadfsafdsvxczvzxcadfs
+--- example: anonymous function set from variable const "summarizeUser"
+
+    const fnPrintUserInformation = function (name, age, busTicket) 
+    {
+        return "Name is " + name + ", Age is " + age + ", busTickets" + busTicket;
+    }
+
+
+--- example: anonymous function set from variable const "summarizeUser"
+   <js-03.03.function-anonymous.js>
+   <js-03.03.function-anonymous.output.js>
+
+
+-- function - 
+   anonymous function with 
+   arrow sign "=>"
+   "this" sign
+
+--- example:  anonymous function with Arrow Functions  "=>"
+
+    // function with "this" keyboard -and- Arrow Function handling
+    const fnPrintUserInformation = (name, age, busTicket) =>
+    {
+        console.log("Name is " + this.fName);
+        return "Name is " + name + ", Age is " + age + ", busTickets" + busTicket;
+    }
+
+
+--- example:  anonymous function with Arrow Functions "=>"
+    <js-03.04.function-Arrow.js>
+    <js-03.04.function-Arrow.output.js>
+
+
+
+-- short function
+
+--- example: Arrow Functions
+
+--- example: Arrow Functions
+    <js-03.05.functions-Arrow-short.js>
+    <js-03.05.functions-Arrow-short.output.js>
+    
+.
+.
+- level 04: objects-properties-methods
+
+- object - 
+
+-- object - 
+An object is a collection of related data and/or functionality,
+which usually consists of several variables and functions — 
+which are called properties and methods when they are inside objects.
+
+
+// rtfm - object //
+//
+https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics
+//
+//.........................................................................//
+
+
+--- example:  object - key:value pairs
+
+    //
+    // object - key:value pairs
+    // 
+    const person = {
+        name: 'jron',
+        age: 45,
+    };
+
+    console.log(person);
+
+    // output:
+    // { name: 'jron', age: 45 }
+
+
+--- example: object with function (arrow function / anonymous function)
+
+    const personWithFunctionBug1 = {
+        name: 'shalom',
+        age: 22,
+
+        //anonymous function with "arrow" function
+        greet: () => {
+            console.log('hello ' + this.name + ' ,how are you today ? ');
+        }
+    };
+
+    // output:
+    // "hello undefined ,how are you today ? "
+
+-!- "personWithFunctionBug1" object contain:
+    "this" is not refer to the global scope, 
+    "this"  refer to the global node runtime scope.
+    and not to the object "personWithFunctionBug1".
+
+
+--- example: call function within an object
+
+    personWithFunctionBug1.greet();
+
+    // fixing the bug - ("Arrow" Function)
+    // function instead of "arrow" function 
+    const personWithFunctionFixBog = {
+        name: 'shalom',
+        age: 22,
+        greet: function () {
+            console.log('hello ' + this.name + ' ,how are you today ? ');
+        }
+    };
+
+    personWithFunctionFixBog.greet();
+
+    // output: 
+    // hello shalom ,how are you today ?
+
+
+--- example: call function within an object (without "function()" keyword)
+
+    const personWithFunctionMethod = {
+        name: 'shalom',
+        age: 22,
+        greet() {
+            console.log('hello ' + this.name + ' ,without function/method keyword ? ');
+        }
+    };
+
+    personWithFunctionMethod.greet();
+
+    // output:
+    // hello shalom ,without function/method keyword ? 
+
+
+--- example: object, properties, variable, methods, function
+    <javaScript-01.05.01.objects-properties-methods.js>
+
+.
+.
+- level 05: array, array_methods
+
+--- example:
+    const arrayTypesInJavaScipt = 
+    ['string1', 'string2', 1, true, { name: 'shalom', age: 33 }, ['anthoer array', 33]]; 
+
+    console.log(
+                "  String[0] == " + arrayTypesInJavaScipt[0] 
+                + " ,String[1] == " + arrayTypesInJavaScipt[1]
+                + " ,number[2] ==  " + arrayTypesInJavaScipt[2]
+                + " ,boolean[3] == " + arrayTypesInJavaScipt[3]
+
+                + " ,array[4].name == " + arrayTypesInJavaScipt[4].name
+                + " ,array[4].age == " + arrayTypesInJavaScipt[4].age
+
+                + " ,array[5]-in-Array == " + arrayTypesInJavaScipt[5]
+                + " ,array[5][0] == " + arrayTypesInJavaScipt[5][0]
+                + " ,array[5][1] == " + arrayTypesInJavaScipt[5][1]
+                + " "
+                );
+
+    // output:
+    //
+    // { name: 'jron', age: 45 }
+    // String[0] == string1 ,String[1] == string2 ,number[2] ==  1 ,boolean[3] == true ,array[4].name == shalom ,array[4].age == 33 
+    // ,array[5]-in-Array == anthoer array,33 ,array[5][0] == anthoer array ,array[5][1] == 33 
+
+
+--- example: String array
+
+    const names = ['shalom', 'yifat'];
+
+    console.log("names list:")
+
+    for (let name of names) {
+        console.log(name);
+    }
+
+
+    // output:
+    //
+    // names list:
+    // shalom
+    // yifat
+
+
+-- example: variable array method: "map()"
+
+    // array method: "map()"
+    const foods = ['pear', 'apple', 'orange'];
+
+    // example 1: map()
+    // map() will return a new array.
+    console.log("example 1: map() method ::: " + foods.map(foods => {
+        //console.log("return food:: and the food list ");
+        return ' Foods:: ' + foods;
+    }));
+
+
+    // example 2: map()
+    // map() will return a new array.
+    // function with one argument do not need curly brackets and not "return" keyword //
+    console.log("example 2: map() :::" + foods.map(foods => ' Foods:: ' + foods));
+
+    console.log("original array :::  " + foods); // original array
+
+
+    // output: 
+    //
+    // example 1: map() method :::  Foods:: pear, Foods:: apple, Foods:: orange
+    // example 2: map() ::: Foods:: pear, Foods:: apple, Foods:: orange
+    // original array :::  pear,apple,orange
+
+
+
+--- example: array - all examples.
+    <javaScript-01.06.01.array-array_methods.js>
+
+.
+.
+- level 06: primitive, Arrays, Objects & Reference Types
+
+-- object and array are also called reference type 
+
+-- when i store an array in const variable,
+   i can edit the array without violating that constants must not be changed.
+
+-!- push() - add new element to the existing array with a array method.
+
+--- example: add an element to array in constant variable (reference to constant variable)
+
+    const foods = ['pear', 'apple', 'orange'];
+
+    console.log(foods);
+    console.log("before push method ::: "  + foods);
+
+    //push() -  add new element to the existing array with a array method.
+    foods.push('banana');
+    foods.push('lemon','ice');
+
+    console.log(foods);
+    console.log("after push method ::: " + foods);
+
+    // output //
+    // [ 'pear', 'apple', 'orange' ]
+    // before push method ::: pear,apple,orange
+    // [ 'pear', 'apple', 'orange', 'banana', 'lemon', 'ice' ]
+    // after push method ::: pear,apple,orange,banana,lemon,ice
+
+
+-!- reference type only store an address pointer at the place in the memory
+    where that array is store.
+    the address has not change by us when we add a new element.
+    the constant variable (const food) contian a pointer/reference to an address.
+
+    [variable] --> [array-address]
+
+
+
+--- example:  primitive, Arrays, Objects & Reference Types - all examples.
+    <javaScript-01.07.01.Arrays.Objects.Reference-Types.js>
+
+.
+.
+- level 07: primitive -vs- Reference Types
+
+- javaScript is dynamic type language -and not- strong type language
+
+
+- primitive values/types - 
+-- string 
+-- numbers
+-- boolean
+-- undefined
+-- null
+-- symbol - (es6)
+
+-!- primitive value copied by value.
+-!- primitive value stored in a memory - 
+--- "stack" is fast and limited memory.
+
+--- example:
+
+    var name1 = 'name1'
+    console.log("name1 ==> " + name1);
+
+    var name2 = 'name2';
+    console.log("name2 ==> " + name2);
+
+    var name1 = 'new-name';
+    console.log("name2 ==> " + name2);
+    console.log("name1 ==> " + name1);
+
+
+    // output //
+    "name1 ==> name1"
+    "name2 ==> name2"
+    "name2 ==> name2"
+    "name1 ==> new-name"
+
+
+- reference values/types
+
+-- object / array  are store in the "heap"
+--- "heap" is slower then "stack".
+--- "heap" can store more information then "stack".
+--- "heap" is a place in memory where element stored in an randomly address.
+
+
+-- reference value/type create a "stack" and make a pointer to it.
+   (store the pointer/address of the "stack" in the reference value variable)
+
+
+--- example:  primitive -vs- Reference Types.
+    <javaScript-01.08.01.var.js>
+   
+.
+.
+- level 08: Spread & Rest Operators
+
+
+- spread Operators - 
+
+-- immutability - 
+   we never edit exist value but always replace them with copies and changes.
+   we want to implement a pattern where in add a new value to the array,
+   a new food, we don't need to edit the original arry,
+   we create a new array with all the old values and the new values.
+
+--- example:  copy an array with slice method.
+    <javaScript-01.09.01.slice.js>
+
+-- copy an array using spread operator.
+--- spread operator = '...'
+--- spread operator pull out the old array element and add them one by one
+    to the new array.
+-!- sperad copy arrays.
+
+--- example: 
+   <javaScript-01.09.02.spread-Operators.js>
+
+
+- Rest Operators - 
+
+-- rest operators are opposite of spread operator.
+-- rest operator = '...'
+
+-- rest operators get arument and send it to the function parameters
+   (no need to set parameters size )
+
+--- example: send argument to the method, and method return an array.
+
+    const addArgumentToArray = (arg1, arg2, arg3) => {
+    return [arg1, arg2, arg3];
+    }
+
+    console.log('return and print the new array ');
+    console.log(addArgumentToArray(1,2,3));
+
+
+
+--- example: rest operator - send unknown argument and return an array
+
+    // rest operator //
+    const addArgumentToArrayWithRestOperator = (...args) => {
+    return args;
+    }
+
+    console.log('call function with argument')
+    console.log(addArgumentToArrayWithRestOperator(1,2,3,4,5) );
+
+--- example: rest operator - send unknown argument and return an array
+    <javaScript-01.09.03.rest-operators.js>
+
+
+.
+- level 09: Destructuring
+
+.
+
+- 
+
+--- example: destructuring
+    <javaScript-01.10.01.destructuring.js>
+
+
+
+.
+.
+- level 10: third party library
+
+-- "lodash" 
+--- copy array/object with third party library "lodash" 
+--- url: https://lodash.com/
+
+
+
+
+.
+
+---[rtfm]-----------------------------------------
+- stack
+- heap
+
+
+
+
+
+
+https://www.youtube.com/watch?v=9ooYYRLdg_g
+
+https://academind.com/learn/javascript/reference-vs-primitive-values/
+
+
+---rtfm---
+- Arrow Functions
+anonymous function
+java script object
+
+// "this" keyword + Arrow Functions //
+https://academind.com/learn/javascript/this-keyword-function-references/
+
+https://www.youtube.com/watch?time_continue=12&v=Pv9flm-80vM
+----------------------
+
+
+
+
+
+
+

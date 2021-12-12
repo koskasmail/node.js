@@ -1,0 +1,64 @@
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title> this #7 </title>
+
+</head>
+
+<body>
+
+    <div>This KeyWord ...</div>
+
+    <button> Add </button>
+    <ul id="names"> </ul>
+
+
+    <script>
+        //----------------------------------------------------------------------------------------------------------//
+        // NameField - 
+        //                       
+        class NameField {
+            constructor(name) {
+                const field = document.createElement('li');
+                field.textContent = name;
+                const nameListHook = document.querySelector('#names');
+                nameListHook.appendChild(field);
+            }
+        }
+        //----------------------------------------------------------------------------------------------------------//
+        // NameGenerator -  class for the object
+        //      
+        class NameGenerator {
+            constructor() {
+                const btn = document.querySelector('button');
+                this.name = ['jron', 'shalom', 'yifat'];
+                this.currnetNameIndex = 0;
+                //
+                // arrow function (ES6)
+                // anonymous function with arrow function will fix the bug,
+                // "this" will refer to the class/constructor and not to the button in the constructor
+                btn.addEventListener('click', () => {
+                    this.addName();
+                });
+            }
+            addName() {
+                const name = new NameField(this.name[this.currnetNameIndex]);
+                this.currnetNameIndex++;
+                if (this.currnetNameIndex >= this.name.length) {
+                    this.currnetNameIndex = 0;
+                }
+            }
+        }
+        //----------------------------------------------------------------------------------------------------------//
+        // onload #1 //
+        // instance gen to NameGererator() 
+        //      
+        const gen = new NameGenerator(); //object = new instance
+    </script>
+
+</body>
+
+</html>

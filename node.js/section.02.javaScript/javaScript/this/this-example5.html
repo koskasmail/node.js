@@ -1,0 +1,72 @@
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title> this #5 </title>
+
+</head>
+
+<body>
+
+    <div>This KeyWord ...</div>
+
+    <button> Add </button>
+    <ul id="names"> </ul>
+
+
+    <script>
+        //----------------------------------------------------------------------------------------------------------//
+        // NameField - 
+        //                       
+        class NameField {
+            constructor(name) {
+                const field = document.createElement('li');
+                field.textContent = name;
+                const nameListHook = document.querySelector('#names');
+                nameListHook.appendChild(field);
+            }
+        }
+
+        //----------------------------------------------------------------------------------------------------------//
+        // NameGenerator -  class for the object
+        //      
+        class NameGenerator {
+            constructor() {
+                const btn = document.querySelector('button');
+
+                this.name = ['jron', 'shalom', 'yifat']; 
+                this.currnetNameIndex = 0;
+
+                // fix bug //
+                // this-example4.html
+                // fix "this" to the  this.name  class 
+                // bind tell javaScript what "this" should be reffering to in the function.
+                // bind refer to the class/constructor and not to the button in the constructor
+                btn.addEventListener('click', this.addName.bind(this));
+            }
+
+
+            addName() {
+
+                console.log(this);
+                
+                const name = new NameField(this.name[this.currnetNameIndex]);
+                this.currnetNameIndex++;
+                if (this.currnetNameIndex >= this.name.length) {
+                    this.currnetNameIndex = 0;
+                }
+            }
+        }
+
+        //----------------------------------------------------------------------------------------------------------//
+        // onload #1 //
+        // instance gen to NameGererator() 
+        //      
+        const gen = new NameGenerator(); //object = new instance
+    </script>
+
+</body>
+
+</html>

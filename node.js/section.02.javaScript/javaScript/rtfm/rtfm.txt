@@ -1,0 +1,33 @@
+
+-- variable --
+- var
+- let
+- var vs let
+- const
+- function
+- java-script scope (variable/object/function scope)
+- java script class
+- java script constructor function
+-!- java script Object Oriented JavaScript Development
+-!- constructor function - normal function which you can call to create a new object and initialize them with property and method.
+-!- java Script Object, and "this" keyword.
+
+
+- javascript object -for- javascript/es5/es6
+
+- javascript version - es5, es6
+
+
+--------------
+
+- function with argumen
+- function - anonymous function set from variable const "summarizeUser"
+- function with "this" keyboard -and- Arrow Functions handling
+- function with this keyboard with Arrow Functions handling
+
+- Arrow Function 
+- anonymous function
+- "this" keyword
+- "=>" -- Arrow Functions keyword
+
+
