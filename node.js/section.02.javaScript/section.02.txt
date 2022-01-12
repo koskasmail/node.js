@@ -2,14 +2,51 @@
 .
 ----[section.02-javaScript]------------.
 .
-- 01. 
+- 01. javaScript basic 
+
+* rest operator
+* spread operator
+* object destructuring
+* free resorces
+
+- weakly typed language
+-- Data type like: number/string/text/boolean
+-- No explicit Data type assignment (don't force you to define a particular type)
+-- Data type can be switched dynamically.
+--- number -to- text / text - to- number
+
+object oriented language - logical object
+
+- versatile language
+-- run on the browser or pc/server (nodejs server)
+--  browser action: user event / rerender the dom
+-- server/pc:  work with files / databases
+
+no explicit type assignment
+
+primitive and reference types
+
+- JavaScript Basic.
+resource
+variable
+function
+loop
+condition
 
 
+02. function
+...
 
 
-.
-.
-- 01.
+03. arrow function
+...
+
+
+04. objects
+
+- object
+-- object name
+-- key:value
 
 
 

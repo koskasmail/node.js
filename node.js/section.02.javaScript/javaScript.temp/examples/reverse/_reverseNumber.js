@@ -1,4 +1,3 @@
-
 ReversePrimitiveNumber(10);
 
 function ReversePrimitiveNumber(number) {
